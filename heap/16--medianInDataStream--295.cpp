@@ -14,6 +14,10 @@ public:
         clearMinMaxHeap();
     }
     
+    // When total elemnt is even
+    // then max and min heap will have equal element
+    // When total elemnt is odd
+    // then max heap will have 1 extra element
     void addNum(int num) {
         // This condition should be on top
         if(maxHeap.empty()) {

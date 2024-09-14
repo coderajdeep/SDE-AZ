@@ -44,11 +44,31 @@
 // 10
 // Task Scheduler -- leetcode 621
 
+// 11
+// Divide Array in Sets of K Consecutive Numbers -- 1296
+// Hand of Straights -- leetcode 846
+
+// 12 ***
+// Similar to Merge M sorted list
+// Design twitter -- leetcode 355
+
+// 13
+// Title : Minimum Cost of ropes (Geeks)
+// Connect n ropes with minimum cost
+
 // 14
 // K-Largest element in integer stream -- leetcode 703
 
 // 15 ***
-// Maximum sum combination -- Geeks
+// Title : Maximum sum combination -- Geeks
 
-// 16
+// 16 ***
+// We only need min element, not the entire stream sorted
+// When total elemnt is even
+// then max and min heap will have equal element
+// When total elemnt is odd
+// then max heap will have 1 extra element
 // Median in data stream -- leetcode 295
+
+// 17 **
+// K most frequent element -- leetcode 347
