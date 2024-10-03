@@ -9,3 +9,9 @@ int largestElement(vector<int> &arr, int n) {
     }
     return largest;
 }
+
+// Using STL
+// https://www.geeksforgeeks.org/problems/largest-element-in-array4009/0
+int largest(vector<int> &arr) {
+    return *max_element(arr.begin(), arr.end());
+}
