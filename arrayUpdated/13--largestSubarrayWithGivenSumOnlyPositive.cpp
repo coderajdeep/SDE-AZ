@@ -13,22 +13,24 @@
 // Here we need to traverse the whole array two time
 // Means Time complexity O(2*n)
 // This will work when 0<=arr[i]
-int longestSubarrayWithSumK(vector<int>& a, long long k) {
-    long long n = a.size(), startIndex = 0, index = 0, maxLen = 0, sum = 0;
-    while(index<n) {
-        sum += a[index];
-        while(startIndex<=index && sum>k) {
-            sum -= a[startIndex++];
+int longestSubarrayWithSumK(vector<int> a, long long k) {
+    int low = 0, high = 0, maxLen = 0, n = a.size();
+    long long sum = 0;
+    while(high<n) {
+        sum += a[high];
+        while(low<=high && sum>k) {
+            sum -= a[low++];
         }
         if(sum == k) {
-            maxLen = max(maxLen, index-startIndex+1);
+            maxLen = max(maxLen, high-low+1);
         }
-        ++index;
+        ++high;
     }
     return maxLen;
 }
 
 // Solution 2
+// https://www.codingninjas.com/studio/problems/920321
 // Time complexity O(n)
 // Space complexity O(n)
 // Just handling the case where 0 to i index is giving max length subarray
@@ -59,6 +61,7 @@ int lenOfLongSubarr(int A[],  int N, int K) {
     int sum = 0, maxLen = 0;
     for(int i=0; i<N; ++i) {
         sum += A[i];
+        // when the subarray is [0..i]
         if(sum==K) {
             maxLen = i + 1;
         }
@@ -72,29 +75,6 @@ int lenOfLongSubarr(int A[],  int N, int K) {
     }
     return maxLen;
 }
-
-// https://www.codingninjas.com/studio/problems/920321
-// Max length sumarray with zero sum
-// Time complexity O(n)
-// Space complexity O(n)
-int LongestSubsetWithZeroSum(vector<int> arr) {
-    int n = arr.size();
-    int sum = 0, maxLen = 0;
-    unordered_map<int, int> prefixSum;
-    prefixSum[0] = -1;
-    for(int i=0; i<n; ++i) {
-        sum += arr[i];
-        auto it = prefixSum.find(sum);
-        if(it!=prefixSum.end()) {
-            maxLen = max(maxLen, (i - it->second));
-        }
-        else {
-            prefixSum[sum] = i;
-        }
-    }
-    return maxLen;
-}
-
 
 // Brute force approach
 // Time complexity O(n^2)
