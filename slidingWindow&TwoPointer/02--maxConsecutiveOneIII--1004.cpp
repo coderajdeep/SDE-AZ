@@ -2,18 +2,21 @@
 
 // Time complexity O(2*n)
 // Space complexity O(1)
-int longestOnes(vector<int>& nums, int k) {
-    int low = 0, high = 0, n = nums.size(), maxLength = 0, count = 0;
-    while(high < n) {
-        if(nums[high]==1 || count < k) {
-            maxLength = max(maxLength, high - low + 1);
-            if(nums[high]==0) ++count;
-            ++high;
+class Solution {
+public:
+    int longestOnes(vector<int>& nums, int k) {
+        int low = 0, high = 0, maxLength = 0, flipCount = 0, n = nums.size();
+        while(high<n) {
+            if(nums[high]==1 || flipCount<k) {
+                maxLength = max(maxLength, high-low+1);
+                if(nums[high] != 1) ++flipCount;
+                ++high;
+            }
+            else {
+                if(nums[low] != 1) --flipCount;
+                ++low;
+            }
         }
-        else {
-            if(nums[low]==0) --count;
-            ++low;
-        }
+        return maxLength;
     }
-    return maxLength;
-}
+};

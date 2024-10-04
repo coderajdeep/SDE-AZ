@@ -1,5 +1,7 @@
 // Missing Number in ana array -- leetcode 268
+// Solution 1 & 2 are best
 
+// Solution 1
 // Best solution
 // Time complexity O(n)
 // Space complexity O(1)
@@ -12,7 +14,7 @@ int missingNumber(vector<int>& nums) {
     return ans;
 }
 
-
+// Solution 2
 // Best solution
 // Time complexity O(n)
 // Space complexity O(1)
@@ -25,6 +27,7 @@ int missingNumber(vector<int>& nums) {
     return ans;
 }
 
+// Solution 3
 // Hashing Solution
 // Time complexity O(n)
 // Space complexity O(n)
@@ -42,6 +45,7 @@ int missingNumber(vector<int>& nums) {
     return -1;
 }
 
+// Solution 4
 // Time complexity O(nlogn)
 // Space complexity O(1)
 int missingNumber(vector<int>& nums) {
