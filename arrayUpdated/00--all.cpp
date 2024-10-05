@@ -83,36 +83,36 @@
 // 18 ***
 // Maximum subarray sum - Kadane's Algorithm -- leetcode 53
 
-// 19 **
+// 20 **
 // We Need to also tell what is the buy and sell day
 // Best Time to buy and sell stock -- leetcode 121
 
-// 20
+// 21
 // *** Rearrange when even and odd nums are not equal
 // Rearrange array in alternative way -- leetcode 2149
 
-// 21 ***
+// 22 ***
 // Need to traverse from right to left and check arr[i]<arr[i+1] : pivot = i
 // If pivot is -1 the reverse the array, modified array is the answer
 // Otherwise traverse again from n-1 to i>pivot and if arr[i]>arr[pivot] then swap arr[i] and arr[pivot]
 // Now reverse arr.begin() + pivot + 1 to arr.end()
 // Next Permutation -- leetcode 31
 
-// 22
+// 23
 // Leaders in an array -- Coding Ninjas
 
-// 23 ***
+// 24 ***
 // Need to insert all of the elements in unordered_set
 // if curr-1 is not exist in unordered_set then curr is the starting point for a new sequence
 // If we use sorting then need to think about the case : array acn have duplicate element
 // Longest Consecutive Sequence -- leetcode 128
 
-// 24 ***
+// 25 ***
 // In place solution is tricky while filling the zero
 // for first col, we need to track another variable because for matrix[0][0], row and column will be overlap
 // Set Matrix Zero -- leetcode 73
 
-// 25 ***
+// 26 ***
 // if the matrix is a rectangular matrix, then in place rotation is tough
 // 90 degree : (i, j) --> (j, n-1-i)
 // 180 degree : (i, j) --> (n-1-i, n-1-j)
@@ -120,20 +120,20 @@
 // 360 degree : (i, j) --> (j, j)
 // Rotate a matrix by clockwise 90 degree -- leetcode 48
 
-// 26 ***
+// 27 ***
 // Print matrix in spiral order  -- leetcode 54
 
-// 27 ***
+// 28 ***
 // Need to think about this test case 
 // Arr : [1]
 // K = 0
 // Answer should be 0
 // Count Subarray with given sum -- leetcode 560
 
-// 28 **
+// 29 **
 // Pascal Triangle 1 -- leetcode 118
 
-// 29 *** 
+// 30 *** 
 // Uisng constant space is tricky
 // Initially e1 = e2 = INT_MIN and c1 = c2 = 0
 // if e1==e or e2==e then increase counter of that element
@@ -142,61 +142,61 @@
 // After the iteration, need to do majority check. This is mandatory
 // Majority Element II  -- leetcode 229
 
-// 30 ***
+// 31 ***
 // 3sum problem
 // Hashing approach will give TLE
 // Array can have duplicates
 // Need to handle duplicate tuplets
 // Need to use Two pointer approach
 
-// 31 ***
+// 32 ***
 // 4sum problem
 // Similar to 3sum
 // Array can have duplicates
 // Two pointer approach
 // Addition to 3sum, here we need to use another extra loop
 
-// 32 ***
+// 33 ***
 // Count number of subarray with given sum target
 // This is same as question 27
 
-// 33 ***
+// 34 ***
 // CodingNinjas & InterviewBit
 // Count number of subarray with given xor target
 // Same as question 27 and 33
 
-// 34 ***
-// Need to sort the intervals
+// 35 ***
+// Need to sort the intervals based on starting time
 // So starting point will be in the sorted order
 // endValue < intervals[i].start => distinct intervals
 // otherwise overlap interval endValue = max(endValue, intervals[i][1])
 // Merge Intervals
 
-// 35 ***
+// 36 ***
 // Merge two sorted array without extra space -- leetcode 88
 // We need to swap element based on arr1[i--]>arr2[j++]
 // This will make sure all elements in arr1 is less than arr2
 // The sort arr1 and arr2 seperately
 
-// 36 ***
+// 37 ***
 // Missing and repeating number -- Geeks
 // Hasing approach and mathematical approach are simple
 // In mathematical approach, we need to use static_cast<type> ***
 // Bit manipulation approach is difficult
 
-// 37 ***
+// 38 ***
 // In merge sort need to do start<end, if we put equal sign then this will goes to infinite loop
 // Need to get count while merging two sorted array
 // Inversion count -- leetcode 
 
-// 38 ***
+// 39 ***
 // Reverse Pairs -- leetcode 493
 // Difference between this with Inversion count is in merge two sorted array case
 // Because for this question, we need to check arr[i] > 2*arr[j]
 // So in else part, we can't say arr[i] < arr[j], so we can merge this
 // So we need to getCount and merge two sorted array in seperate function
 
-// 39
+// 40 ***
 // Subarray with maximum product -- leetcode 152
 
 // Q1
