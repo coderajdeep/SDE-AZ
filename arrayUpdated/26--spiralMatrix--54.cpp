@@ -16,7 +16,7 @@ vector<int> spiralOrder(vector<vector<int>>& matrix) {
             ans[index++] = matrix[i][right];
         }
         --right;
-        // here we are check top & bottom condition because left & right will be checked inside
+        // here we are check top & bottom condition because left & right will be checked inner loop
         // if we don't check, then this will give segmentation fault
         if(top<=bottom) {
             for(int i=right; i>=left; --i) {
@@ -24,6 +24,9 @@ vector<int> spiralOrder(vector<vector<int>>& matrix) {
             }
             --bottom;
         }
+        // similarly
+        // here we are check left & right condition because top & bottom will be checked inner loop
+        // if we don't check, then this will give segmentation fault
         if(left<=right) {
             for(int i=bottom; i>=top; --i) {
                 ans[index++] = matrix[i][left];

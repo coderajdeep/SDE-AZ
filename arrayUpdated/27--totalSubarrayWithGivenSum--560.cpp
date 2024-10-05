@@ -5,7 +5,7 @@
 int subarraySum(vector<int>& nums, int k) {
     int prefixSum = 0, count = 0, n = nums.size();
     unordered_map<int, int> umap;
-    // this is for handling index 0 to i sum
+    // this is for handling index 0 to i-index sum
     umap[0] = 1;
     for(int i=0; i<n; ++i) {
         prefixSum += nums[i];
@@ -13,12 +13,17 @@ int subarraySum(vector<int>& nums, int k) {
         if(it != umap.end()) {
             count += it->second;
         }
+        // Need to think about this test case 
+        // Arr : [1]
+        // K = 0
+        // Answer should be 0
+        // if we write this line above, then this case will not be handled
         umap[prefixSum] += 1;
     }
     return count;
 }
 
-// Generate all subarray with given sum
+// *** Generate all subarray with given sum
 vector<pair<int, int>> getAllSubarrayWithGivenSum(vector<int>& nums, int k) {
     int n = nums.size(), prefixSum = 0;
     unordered_map<int, vector<int>> umap;
