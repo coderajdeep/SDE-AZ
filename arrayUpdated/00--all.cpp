@@ -80,10 +80,7 @@
 // Then we need to check the count of the element we get from moore's voting algorithm 
 // *** Majority Element -- leetcode 169
 
-// TODO geeks question
 // 18 ***
-// Question can be Max length / Min length subarray or starting or ending index (of max sum subarray)
-// https://www.geeksforgeeks.org/problems/max-sum-in-sub-arrays0824/0
 // Maximum subarray sum - Kadane's Algorithm -- leetcode 53
 
 // 19 **
@@ -91,6 +88,7 @@
 // Best Time to buy and sell stock -- leetcode 121
 
 // 20
+// *** Rearrange when even and odd nums are not equal
 // Rearrange array in alternative way -- leetcode 2149
 
 // 21 ***
@@ -106,6 +104,7 @@
 // 23 ***
 // Need to insert all of the elements in unordered_set
 // if curr-1 is not exist in unordered_set then curr is the starting point for a new sequence
+// If we use sorting then need to think about the case : array acn have duplicate element
 // Longest Consecutive Sequence -- leetcode 128
 
 // 24 ***

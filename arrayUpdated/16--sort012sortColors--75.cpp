@@ -2,6 +2,7 @@
 // sort 0 1 2 - sort colors
 // leetcode 75
 
+// Solution 1
 // Best approach
 // Duch national flag algo
 // Time complexity O(n)
@@ -29,6 +30,7 @@ void sortColors(vector<int>& nums) {
     }
 }
 
+// Solution 2
 // Time complexity O(2*n) ~ O(n)
 // Space complexity O(1)
 void sortColors(vector<int>& nums) {

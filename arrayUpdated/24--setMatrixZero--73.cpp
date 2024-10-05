@@ -23,11 +23,12 @@ void setZeroes(vector<vector<int>>& matrix) {
             }
         }
     }
-    // We are traversing from right to left
-    // Because if we traverse from left to write then we can overwrite matrix[0][j] and matrix[i][0]
-    // when matrix[0][0] is zero and firstColumn = 0 respectively
-    // if we want to traverse left to write then we need to avoid first row and column while 
-    // filling the matrix with zero and later we can fill first row and column
+    // Good explanation
+    // https://youtu.be/N0MgLvceX7M?t=1270
+    // We need to traverse from bottom to up and right to left
+    // if we traverse from top to bottom then we can modify first row
+    // and if we traverse from left to right then we can modify first column
+    // so we need to avoid this and traverse bottom to up and right to left
     for(int i=n-1; i>=0; --i) {
         for(int j=m-1; j>=0; --j) {
             if(j==0) {

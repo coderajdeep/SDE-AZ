@@ -34,23 +34,23 @@ pair<int, int> maxSubArray(vector<int>& nums) {
     int maxValue = INT_MIN;
     // This is for tracking current maximum value
     int currMax = 0;
-    int start, low, high;
+    int low, high;
     for(int i=0; i<n; ++i) {
         // If the current number is greater than 
         // the value of current number + currentActive subarray
         // Then I will update the current maximum
-        if(nums[i]<=(nums[i]+currMax)) {
+        if(nums[i]<(nums[i]+currMax)) {
             currMax += nums[i];
         }
         else {
             currMax = nums[i];
-            start = index;
+            low = index;
         }
         if(maxValue<currMax) {
-            low = start;
             high = index;
             maxValue = currMax;
         }
     }
+    // this is not true
     return pair<int, int> {low, high};
 }

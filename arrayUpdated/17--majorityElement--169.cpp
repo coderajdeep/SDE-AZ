@@ -20,6 +20,7 @@ int isMajorityElement(int element, int n, int* arr) {
 }
 int majorityElement(vector<int>& nums) {
     int n = nums.size();
+    // in place of index, we just can carry the element also
     int count = 0, index;
     for(int i=0; i<n; ++i) {
         if(!count) {

@@ -1,6 +1,6 @@
 // Time complexity O(n)
 // Space complexity O(n)
-
+// Equal number of even and odd elements
 vector<int> rearrangeArray(vector<int>& nums) {
     int n = nums.size(), evenIndex = 0, oddIndex = 1;
     vector<int> ans(n);

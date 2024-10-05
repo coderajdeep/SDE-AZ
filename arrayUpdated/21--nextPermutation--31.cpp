@@ -1,6 +1,7 @@
 // Next Permutation -- leetcode 31
-
-
+// Solution 1
+// Using STL
+// Best solution
 // Time complexity O(n)
 // Space complexity O(1)
 void nextPermutation(vector<int>& nums) {
@@ -24,6 +25,7 @@ void nextPermutation(vector<int>& nums) {
     reverse(nums.begin()+pivot+1, nums.end());
 }
 
+// Similar solution
 // Here we are not using STL
 void swap(int& a, int& b) {
     int temp = a;
@@ -57,6 +59,7 @@ void nextPermutation(vector<int>& nums) {
     reverseArray(index+1, n-1, nums);
 }
 
+// Solution 2
 // Time complexity O(nlogn)
 // Space complexity O(n)
 class Solution {

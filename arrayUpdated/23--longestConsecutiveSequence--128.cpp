@@ -1,8 +1,10 @@
 // Longest Consecutive Sequence -- leetcode 128
-
-// Array can be empty and array can have duplicate numbers
+// Solution 1
 // Time complexity O(nlogn)
 // Space complexity O(1)
+
+// *** Array can be empty and array can have duplicate numbers
+// Need to think about this for below solution
 int longestConsecutive(vector<int>& nums) {
     int n = nums.size(), lastSmallest = INT_MIN, count, maxCount = INT_MIN;
     sort(nums.begin(), nums.end());
@@ -19,28 +21,29 @@ int longestConsecutive(vector<int>& nums) {
     return maxCount == INT_MIN ? 0 : maxCount;
 }
 
-
+// Solution 2
 // Time complexity O(n)
 // Space complexity O(n)
 // Clean solution
-int longestConsecutive(vector<int>& nums) {
-    unordered_set<int>us;
-    for(int num:nums) {
-        us.insert(num);
-    }
-    int maxCount = 0;
-    for(int num:us) {
-        int number = num - 1;
-        auto itr = us.find(number);
-        if(itr == us.end()) {
-            int count = 1;
-            int next = num + 1;
-            while(us.find(next) != us.end()) {
-                ++count;
-                ++next;
-            }
-            maxCount = max(maxCount, count);
+class Solution{
+    public:
+    int findLongestConseqSubseq(int arr[], int N)
+    {
+        unordered_set<int> uset;
+        for(int i=0; i<N; ++i) {
+            uset.insert(arr[i]);
         }
+        int maxLen = 1;
+        for(int i=0; i<N; ++i) {
+            if(uset.find(arr[i]-1) == uset.end()) {
+                int len = 1, next = arr[i]+1;
+                while(uset.find(next) != uset.end()) {
+                    ++len;
+                    ++next;
+                }
+                maxLen = max(maxLen, len);
+            }
+        }
+        return maxLen;
     }
-    return maxCount;
-}
+};
