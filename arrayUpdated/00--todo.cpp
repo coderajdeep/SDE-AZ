@@ -5,3 +5,5 @@
 // 287. Find the Duplicate Number
 // 137. Single Number II
 // 260. Single Number III
+// 2419. Longest Subarray With Maximum Bitwise AND
+// 119. Pascal's Triangle II

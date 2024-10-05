@@ -145,11 +145,14 @@
 // 30 ***
 // 3sum problem
 // Hashing approach will give TLE
+// Array can have duplicates
+// Need to handle duplicate tuplets
 // Need to use Two pointer approach
 
 // 31 ***
 // 4sum problem
 // Similar to 3sum
+// Array can have duplicates
 // Two pointer approach
 // Addition to 3sum, here we need to use another extra loop
 

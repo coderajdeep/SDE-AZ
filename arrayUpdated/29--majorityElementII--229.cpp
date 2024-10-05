@@ -39,23 +39,6 @@ vector<int> majorityCheck(int element1, int element2, int len, vector<int> &arr)
 // Time complexity O(n)
 // Space complexity O(n)
 vector<int> majorityElement(vector<int>& nums) {
-    unordered_multiset<int>ums;
-    vector<int> ans;
-    int len = nums.size()/3;
-    for(int element:nums) {
-        ums.insert(element);
-        if(ums.count(element)>len) {
-            if(ans.empty() || ans.back()!=element) {
-                ans.push_back(element);
-            }
-            if(ans.size()==2) return ans;
-        }
-    }
-    return ans;
-}
-
-// Same solution
-vector<int> majorityElement(vector<int>& nums) {
     int n = nums.size();
     vector<int> ans;
     unordered_map<int, int> um;
