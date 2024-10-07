@@ -2,6 +2,8 @@
 // Implement Roman to Integer **
 
 // 1 ***
+// Given string is balanced
+// Use counter
 // Remove outer parentheses -- leetcode 1021
 
 // 2 **
