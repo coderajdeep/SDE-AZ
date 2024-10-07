@@ -13,29 +13,36 @@
 // Largest odd number in string -- leetcode 1903
 
 // 4 *
+// Need to implement in Trie
 // Largest common prefix of all strings -- leetcode 14
 
 // 5 **
+// Need to map every character of target to str as well as str to target
 // Is two string are isomorphic string -- leetcode 205
 
 // 6 ***
+// Concat two string and then find if the another string is a substring or not?
 // Check if a string is rotation of another -- leetcode 796
 
 // 7 **
 // Valid Anagram -- leetcode 242
 
 // 8 ***
+// Count frequency using unordered_map
+// Sort character uisng set (custome comparator)
+// Traverse the set and generate the resultant string
 // Sort by frequency -- leetcode 451
 
 // 9 **
 // Max Parentheses depth -- leetcode 1614
 
-// 10 **
+// 11 **
 // ATOI implementation -- leetcode 8
 
-// 11 ***
+// 12 ***
 // Very very important
 // This can be solved for array and string, but for string, solution is more optimized
+// Using unordered_map, solution is simple
 // Number of substring having exactly K distinct character
 
 // 16 ***
