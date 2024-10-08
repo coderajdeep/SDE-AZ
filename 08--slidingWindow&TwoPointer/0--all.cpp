@@ -12,6 +12,11 @@
 // For consecutive one II has k = 1
 // Max consecutive one III -- leetcode 1004
 
+// 3 **
+// Similar to longest subarray having K distinct element
+// Here K = 2
+// Fruit into basket
+
 // 4 ***
 // WindowLength - maxFrequency <= K then the window is valid
 // Longest Repeating character replacement -- leetcode 424
