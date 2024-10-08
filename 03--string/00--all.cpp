@@ -45,6 +45,15 @@
 // Using unordered_map, solution is simple
 // Number of substring having exactly K distinct character
 
+// 14
+// Brute fource (better solution most probably does not exist)
+// Sum of Beauty of All Substrings -- leetcode 1781
+
+// 15
+// Brute force O(n^3)
+// We can solve this using DP
+// We also can solve this by expanding from center O(n^2)
+
 // 16 ***
 // Minimum number of brackets needs to be inserted -- leetcode 921
 
