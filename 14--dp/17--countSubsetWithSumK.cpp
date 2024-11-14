@@ -1,5 +1,5 @@
 // Count subset with sum K -- Coding Ninjas
-// *** Best Solution (Solution 2 -- using only one !D array)
+// *** Best Solution (Solution 2 -- using only one 1D array)
 // Solution 1
 // Space optimized Geeks
 // Time complexity O(n*sum)
