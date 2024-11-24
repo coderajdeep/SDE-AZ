@@ -2,33 +2,32 @@
 // Time complexity O(n*n)
 // Space complexity O(n)
 vector<int> largestDivisibleSubset(vector<int>& nums) {
-    sort(nums.begin(), nums.end());
     int n = nums.size();
-    int dp[n];
     int hash[n];
-    for(int i=0; i<n; ++i) {
+    int dp[n];
+    dp[0] = 1;
+    hash[0] = 0;
+    sort(nums.begin(), nums.end());
+    int maxLen = 1, maxLenIndex = 0;
+    for(int i=1; i<n; ++i) {
         dp[i] = 1;
         hash[i] = i;
-    }
-
-    int len = 1, maxIndex = 0;
-    for(int curr=1; curr<n; ++curr) {
-        for(int prev=0; prev<curr; ++prev) {
-            if((nums[curr]%nums[prev]==0) && (dp[prev]+1>dp[curr])) {
-                dp[curr] = dp[prev] + 1;
-                hash[curr] = prev;
+        for(int j=0; j<i; ++j) {
+            if(nums[i]%nums[j]==0 && dp[i]<dp[j]+1) {
+                dp[i] = dp[j] + 1;
+                hash[i] = j;
+                if(maxLen < dp[i]) {
+                    maxLen = dp[i];
+                    maxLenIndex = i;
+                }
             }
         }
-        if(len < dp[curr]) {
-            len = dp[curr];
-            maxIndex = curr;
-        }
     }
-
-    vector<int> ans(len);
-    for(int i=len-1; i>=0; --i) {
-        ans[i] = nums[maxIndex];
-        maxIndex = hash[maxIndex];
+    int prev = maxLenIndex;
+    vector<int> ans(maxLen);
+    for(int i=maxLen-1; i>=0; --i) {
+        ans[i] = nums[prev];
+        prev = hash[prev];
     }
     return ans;
 }

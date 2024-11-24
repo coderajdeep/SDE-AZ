@@ -4,6 +4,7 @@
 
 // [2, 2, 2]
 // [1,2,4,3,5,4,7,2]
+// [1,5,4,3,2,6,7,10,8,9]
 int findNumberOfLIS(vector<int>& nums) {
     int n = nums.size();
     vector<int> dp(n, 1), count(n, 1);

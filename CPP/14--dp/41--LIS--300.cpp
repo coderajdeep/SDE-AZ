@@ -3,6 +3,10 @@
 // Best solution
 // Time complexity O(nlogn)
 // Space complexity O(size of lis)
+
+// This will track the lcs in tiill index
+// But it is not garented that lcs will end that index
+// it may end earlier
 int lengthOfLIS(vector<int>& nums) {
     vector<int> temp;
     for(int num : nums) {
