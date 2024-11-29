@@ -1,4 +1,25 @@
 // Pascal Triangle
+// https://youtu.be/bR7mQgwQ_o8
+// Clear explanation
+
+// If Need to return R th row and C th column element then need to return (R-1) C (C-1) element
+/*
+nCr value
+int ans = 1;
+for(int i=0; i<c; ++i) ans *= ((n-i)/(i+1));
+
+for a single row,
+In N row, there will be N element
+vector<int> ans(N);
+ans[0] = ans[N-1] = 1;
+for(int i=1; i<=N-2; ++i) {
+    ans[i] = (ans[i-1] * (N-i) / i);
+}
+// This will be multiplied
+// Row is 1-based index
+// col is 0-based index
+// ((Row - col) / col)
+*/
 
 // Time complexity O(n^2)
 // Space complexity O(n^2)
