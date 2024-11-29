@@ -46,10 +46,25 @@
 // else cnt = 0
 // at the end maxCnt is the answer
 // *** Maximum Consecutive one  -- leetcode 485
+// leetcode 1004
+// Maximum consecutive one III
+// leetcode 487
+// https://leetcode.ca/all/487.html
+// Maximum consecutive one II
+// Here k = 1
 
 // 12 *
 // Constant space solution is using XOR
 // Find only single element in array  -- leetcode 136
+// Find single element in sorted array -- leetcode 540
+// mid is odd
+// 0 1 2 3 4 5 6 -> index
+// 1 1 2 3 3 4 4
+// 1 1 2 2 3 4 4
+// mid is even
+// 0 1 2 3 4 5 6 7 8 -> index
+// 1 1 2 3 3 4 4 5 5
+// 1 1 2 2 3 3 4 5 5
 
 // 13 ***
 // Very very important

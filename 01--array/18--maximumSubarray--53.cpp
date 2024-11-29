@@ -5,24 +5,23 @@
 int maxSubArray(vector<int>& nums) {
     int n = nums.size();
     // This is for tracking ovarall maximum value
-    int maxValue = INT_MIN;
+    int maxSumValue = INT_MIN;
     // This is for tracking current maximum value
     int currMax = 0;
     for(int i=0; i<n; ++i) {
-        // If the current number is greater than 
-        // the value of current number + currentActive subarray
-        // Then I will update the current maximum
+        // This is to check if I can include the currentElement in the currMax or not
         if(nums[i]<(nums[i]+currMax)) {
             currMax += nums[i];
         }
         else {
             currMax = nums[i];
         }
-        if(maxValue<currMax) {
-            maxValue = currMax;
+        // Update the maxSumValue
+        if(maxSumValue<currMax) {
+            maxSumValue = currMax;
         }
     }
-    return maxValue;
+    return maxSumValue;
 }
 
 // Question can be length of the max or min subarray
@@ -31,10 +30,10 @@ int maxSubArray(vector<int>& nums) {
 pair<int, int> maxSubArray(vector<int>& nums) {
     int n = nums.size();
     // This is for tracking ovarall maximum value
-    int maxValue = INT_MIN;
+    int maxSumValue = INT_MIN;
     // This is for tracking current maximum value
     int currMax = 0;
-    int low, high;
+    int start, low, high;
     for(int i=0; i<n; ++i) {
         // If the current number is greater than 
         // the value of current number + currentActive subarray
@@ -44,11 +43,12 @@ pair<int, int> maxSubArray(vector<int>& nums) {
         }
         else {
             currMax = nums[i];
-            low = index;
+            start = index;
         }
-        if(maxValue<currMax) {
+        if(maxSumValue<currMax) {
+            low = start;
             high = index;
-            maxValue = currMax;
+            maxSumValue = currMax;
         }
     }
     // this is not true
