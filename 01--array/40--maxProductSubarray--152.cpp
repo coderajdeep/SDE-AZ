@@ -3,6 +3,7 @@
 // Space complexity O(1)
 
 // Single traversal
+// https://youtu.be/hnswaLJvr6g?t=1148
 int maxProduct(vector<int>& nums) {
     int n = nums.size();
     int prefix = 1, suffix = 1, ans = INT_MIN;
