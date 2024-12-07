@@ -1,3 +1,4 @@
+// Similar to longest subarray having K distinct element
 // Time complexity O(n)
 // Space complexity O(n)
 class Solution {
