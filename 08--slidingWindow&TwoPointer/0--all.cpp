@@ -5,6 +5,8 @@
 // Else update low : low = hash[curr] + 1
 // At the end update curr in hash and increase high
 // Longest substring without repeating character -- leetcode 3
+// If we need to find the count
+// https://www.geeksforgeeks.org/count-of-substrings-having-all-distinct-characters/
 
 // 2 •••
 // If curr == 0 || count<k then find maxLen and increase high
