@@ -116,3 +116,6 @@
 
 // 36
 // Number of operations to make network connected -- leetcode 1319
+
+// Q1
+// Number of Islands -- leetcode 200

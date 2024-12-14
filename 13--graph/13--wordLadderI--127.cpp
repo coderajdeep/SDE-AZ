@@ -7,28 +7,36 @@ int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
     for(string word : wordList) {
         uset.insert(word);
     }
-    if(uset.find(endWord) == uset.end()) return 0;
+    if(uset.find(endWord) == uset.end()) {
+        return 0;
+    }
     queue<pair<string, int>> q;
     q.push({beginWord, 1});
-    uset.erase(beginWord);
+    auto it = uset.find(beginWord);
+    if(it != uset.end()) uset.erase(it);
+
     while(!q.empty()) {
         pair<string, int> p = q.front();
         q.pop();
-        string str = p.first;
-        int dist = p.second + 1;
-        
+        string word = p.first;
+        if(word==endWord) {
+            return p.second;
+        }
+        string updatedString = word;
         for(int i=0; i<size; ++i) {
-            for(int j=0; j<26; ++j) {
-                str[i] = (int)'a' + j;
-                if(str == endWord) return dist;
-                auto it = uset.find(str);
-                if(str != p.first && it != uset.end()) {
-                    q.push({str, dist});
-                    uset.erase(it);
-                } 
+            for(char ch='a'; ch<='z'; ++ch) {
+                if(ch != word[i]) {
+                    updatedString[i] = ch;
+                    auto it = uset.find(updatedString);
+                    if(it != uset.end()) {
+                        uset.erase(it);
+                        q.push({updatedString, p.second + 1});
+                    }
+                }
             }
-            str = p.first;
+            updatedString[i] = word[i];
         }
     }
+
     return 0;
 }
