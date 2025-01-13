@@ -3,11 +3,11 @@
 // Memoization
 // Time complexity O(n*k*2) 
 // Space complexity O(n*k*2) + Recursion stack space O(n+k)
-int getMaxProfit(int day, int limit, int buyFlag, vector<int>& prices, vector<vector<vector<int>>> &dp) {
+int getMaxProfit(int day, int limit, int buyPossible, vector<int>& prices, vector<vector<vector<int>>> &dp) {
     if(day==prices.size() || limit==0) return 0;
-    if(dp[day][limit][buyFlag] != -1) return dp[day][limit][buyFlag];
+    if(dp[day][limit][buyPossible] != -1) return dp[day][limit][buyPossible];
     int buyMax = INT_MIN, sellMax = INT_MIN;
-    if(buyFlag==1) {
+    if(buyPossible==1) {
         int buy = getMaxProfit(day+1, limit, 0, prices, dp) - prices[day];
         int notBuy = getMaxProfit(day+1, limit, 1, prices, dp);
         buyMax = max(buy, notBuy);
@@ -17,7 +17,7 @@ int getMaxProfit(int day, int limit, int buyFlag, vector<int>& prices, vector<ve
         int notSell = getMaxProfit(day+1, limit, 0, prices, dp);
         sellMax = max(sell, notSell);
     }
-    return dp[day][limit][buyFlag] = max(buyMax, sellMax);
+    return dp[day][limit][buyPossible] = max(buyMax, sellMax);
 }
 int maxProfit(int k, vector<int>& prices) {
     int n = prices.size();

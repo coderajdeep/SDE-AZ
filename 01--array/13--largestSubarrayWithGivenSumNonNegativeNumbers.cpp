@@ -6,6 +6,7 @@
 // Solution 1
 // Best approach
 // variable size sliding window
+// Two Pointer approach
 // Time complexity O(n)
 // Space complexity O(1)
 // [1 1 1 1 5]

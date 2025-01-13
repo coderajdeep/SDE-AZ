@@ -4,6 +4,8 @@
 // Time complexity O(n)
 // Space complexity O(1)
 vector<int> majorityElement(vector<int>& nums) {
+    // Always maintain the order
+    // [2,1,1,3,1,4,5,6]
     int count1 = 0, count2 = 0, element1 = INT_MIN, element2 = INT_MIN, len = nums.size()/3;
     for(int element:nums) {
         if(element1 == element) ++count1;

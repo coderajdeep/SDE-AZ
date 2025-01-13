@@ -52,5 +52,6 @@ pair<int, int> maxSubArray(vector<int>& nums) {
         }
     }
     // this is not true
+    // this will return the one of the subarray
     return pair<int, int> {low, high};
 }

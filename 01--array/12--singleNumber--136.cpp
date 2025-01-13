@@ -27,6 +27,8 @@ int singleNonDuplicate(vector<int>& nums) {
         // 0 1 2 3 4 5 6 -> index
         // 1 1 2 3 3 4 4
         // 1 1 2 2 3 4 4
+        // for odd mid 
+		// +-1
         if(mid & 1) {
             if(nums[mid]==nums[mid-1]) {
                 low = mid + 1;
@@ -39,6 +41,8 @@ int singleNonDuplicate(vector<int>& nums) {
         // 0 1 2 3 4 5 6 7 8 -> index
         // 1 1 2 3 3 4 4 5 5
         // 1 1 2 2 3 3 4 5 5
+        // for even mid 
+		// +-2
         else {
             if(nums[mid]==nums[mid+1]) {
                 low = mid + 2;

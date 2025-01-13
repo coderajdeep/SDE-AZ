@@ -62,3 +62,9 @@
 
 // Q2
 // Valid palindrome -- leetcode 125
+
+// Q3
+// Group Anagrams -- leetcode 49
+
+// Q4
+// Count Anagrams -- OA Round (Interview Question)

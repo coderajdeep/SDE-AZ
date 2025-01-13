@@ -6,8 +6,8 @@
 // Moore's voting algorithm
 // If it's not guaranteed that majority element will exist
 // Then we need to check this  
-int isMajorityElement(int element, int n, int* arr) {
-    int count = 0;
+int isMajorityElement(int element, vector<int> &arr) {
+    int count = 0, n = arr.size();
     for(int i=0; i<n; ++i) {
         if(element==arr[i]) {
             ++count;
@@ -21,14 +21,17 @@ int isMajorityElement(int element, int n, int* arr) {
 int majorityElement(vector<int>& nums) {
     int n = nums.size();
     // in place of index, we just can carry the element also
-    int count = 0, index;
+    int count = 0, element;
     for(int i=0; i<n; ++i) {
         if(!count) {
-            index = i;
+            element = nums[i];
             ++count;
         }
-        else if(nums[index]==nums[i]) ++count;
-        else if(nums[index]!=nums[i]) --count;
+        else if(element==nums[i]) ++count;
+        else if(element!=nums[i]) --count;
     }
-    return nums[index];
+    // if it is not guaranteed that majoriry element exist then we need to do this below
+    // return isMajorityElement(element, nums) ? element : -1;
+    // otherwise directly return the element
+    return element;
 }
