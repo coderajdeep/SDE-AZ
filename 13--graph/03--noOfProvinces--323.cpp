@@ -1,4 +1,5 @@
 // Number of provinces
+// Number of connected components in graph -- leetcode 323
 // Time complexity O(V+E)
 
 void dfs(int u, vector<vector<int>>& graph, vector<bool> &visited) {
