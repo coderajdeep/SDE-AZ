@@ -1,65 +1,5 @@
 // Geeks training
 
-// Space optimized Tabulation -- Bottom Up approach
-// Time complexity O(n*4*3) ~ O(n*12) ~ O(n)
-// Space complexity O(2*4) ~ constant space
-int maximumPoints(vector<vector<int>>& points, int n) {
-	vector<int> curr(4), prev(4);
-	for(int i=0; i<4; ++i) {
-		int maxPoint = INT_MIN;
-		for(int j=0; j<3; ++j) {
-			if(i!=j) {
-				maxPoint = max(maxPoint, points[0][j]);
-			}
-		}
-		prev[i] = maxPoint;
-	}
-	// if we avoid this condition, then at the end we can return curr[3]
-	// This will perfectly work
-	if(n==1) return prev[3];
-	for(int index=1; index<n; ++index) {
-		for(int i=0; i<4; ++i) {
-			int maxCost = INT_MIN;
-			for(int j=0; j<3; ++j) {
-				if(i!=j) {
-					maxCost = max(maxCost, points[index][j] + prev[j]);
-				}
-			}
-			curr[i] = maxCost;
-		}
-		for(int i=0; i<4; ++i) prev[i] = curr[i];
-	}
-	return curr[3];
-}
-
-// Tabulation -- Bottom Up approach
-// Time complexity O(n*4*3) ~ O(n*12) ~ O(n)
-// Space complexity O(n*4) ~ O(n)
-int maximumPoints(vector<vector<int>>& points, int n) {
-	vector<vector<int>> dp(n, vector<int>(4));
-	for(int i=0; i<4; ++i) {
-		int maxPoint = INT_MIN;
-		for(int j=0; j<3; ++j) {
-			if(i!=j) {
-				maxPoint = max(maxPoint, points[0][j]);
-			}
-		}
-		dp[0][i] = maxPoint;
-	}
-	for(int index=1; index<n; ++index) {
-		for(int i=0; i<4; ++i) {
-			int maxCost = INT_MIN;
-			for(int j=0; j<3; ++j) {
-				if(i!=j) {
-					maxCost = max(maxCost, points[index][j] + dp[index-1][j]);
-				}
-			}
-			dp[index][i] = maxCost;
-		}
-	}
-	return dp[n-1][3];
-}
-
 // Memoization -- top down approach
 // Time complexity O(n*12)
 // Space complexity O(n*4) + O(n) : Recursion stack space
@@ -92,6 +32,67 @@ class Solution {
         return ans;
     }
 };
+
+// Tabulation -- Bottom Up approach
+// Time complexity O(n*4*3) ~ O(n*12) ~ O(n)
+// Space complexity O(n*4) ~ O(n)
+int maximumPoints(vector<vector<int>>& points, int n) {
+	vector<vector<int>> dp(n, vector<int>(4));
+	for(int i=0; i<4; ++i) {
+		int maxPoint = INT_MIN;
+		for(int j=0; j<3; ++j) {
+			if(i!=j) {
+				maxPoint = max(maxPoint, points[0][j]);
+			}
+		}
+		dp[0][i] = maxPoint;
+	}
+	for(int index=1; index<n; ++index) {
+		for(int i=0; i<4; ++i) {
+			int maxCost = INT_MIN;
+			for(int j=0; j<3; ++j) {
+				if(i!=j) {
+					maxCost = max(maxCost, points[index][j] + dp[index-1][j]);
+				}
+			}
+			dp[index][i] = maxCost;
+		}
+	}
+	return dp[n-1][3];
+}
+
+
+// Space optimized Tabulation -- Bottom Up approach
+// Time complexity O(n*4*3) ~ O(n*12) ~ O(n)
+// Space complexity O(2*4) ~ constant space
+int maximumPoints(vector<vector<int>>& points, int n) {
+	vector<int> curr(4), prev(4);
+	for(int i=0; i<4; ++i) {
+		int maxPoint = INT_MIN;
+		for(int j=0; j<3; ++j) {
+			if(i!=j) {
+				maxPoint = max(maxPoint, points[0][j]);
+			}
+		}
+		prev[i] = maxPoint;
+	}
+	// if we avoid this condition, then at the end we can return curr[3]
+	// This will perfectly work
+	if(n==1) return prev[3];
+	for(int index=1; index<n; ++index) {
+		for(int i=0; i<4; ++i) {
+			int maxCost = INT_MIN;
+			for(int j=0; j<3; ++j) {
+				if(i!=j) {
+					maxCost = max(maxCost, points[index][j] + prev[j]);
+				}
+			}
+			curr[i] = maxCost;
+		}
+		for(int i=0; i<4; ++i) prev[i] = curr[i];
+	}
+	return curr[3];
+}
 
 
 // Coding Ninjas

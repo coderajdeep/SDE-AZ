@@ -1,5 +1,56 @@
 // Minimum falling path in rectangle -- leetcode 931 (Variable starting and ending point)
 
+// Memoization
+// Time complexity O(n*n)
+// Space complexity O(n*n) + recursion call stack O(n)
+// We can start from top as well as bottom
+// TLE in leetcode
+int solve(int i, int j, int n, vector<vector<int>> &matrix, vector<vector<int>> &dp) {
+    if(j<0 || j==n) return INT_MAX;
+    if(i==0) {
+        return dp[i][j] = matrix[i][j];
+    }
+    if(dp[i][j] != -1) return dp[i][j];
+    int ld = solve(i-1, j-1, n, matrix, dp);
+    int up = solve(i-1, j, n, matrix, dp);
+    int rd = solve(i-1, j+1, n, matrix, dp);
+    return dp[i][j] = min({ld, up, rd}) + matrix[i][j];
+}
+int minFallingPathSum(vector<vector<int>>& matrix) {
+    int n = matrix.size(), minPathSum = INT_MAX;
+    vector<vector<int>> dp(n, vector<int>(n, -1));
+    for(int i=0; i<n; ++i) {
+        minPathSum = min(minPathSum, solve(n-1, i, n, matrix, dp));
+    }
+    return minPathSum;
+}
+
+// ******
+// Tabulation
+// Time complexity O(n*n)
+// Space complexity O(n*n)
+int minFallingPathSum(vector<vector<int>>& matrix) {
+    int n = matrix.size(), minPathSum = INT_MAX;
+    vector<vector<int>> dp(n, vector<int>(n));
+    for(int i=0; i<n; ++i) {
+        for(int j=0; j<n; ++j) {
+            if(i==0) {
+                dp[i][j] = matrix[i][j];
+            }
+            else {
+                int ld = j>0 ? dp[i-1][j-1] : INT_MAX;
+                int up = dp[i-1][j];
+                int rd = j<n-1 ? dp[i-1][j+1] : INT_MAX;
+                dp[i][j] = matrix[i][j] + min({ld, up, rd});
+            }
+            if(i==n-1) {
+                minPathSum = min(minPathSum, dp[i][j]);
+            }
+        }
+    }
+    return minPathSum;
+}
+
 // Solution type 1
 // Start from last row and end to the first row
 // Space optimised
@@ -27,56 +78,6 @@ int minFallingPathSum(vector<vector<int>>& matrix) {
         for(int k=0; k<n; ++k) {
             prev[k] = curr[k];
         }
-    }
-    return minPathSum;
-}
-
-// Tabulation
-// Time complexity O(n*n)
-// Space complexity O(n*n)
-int minFallingPathSum(vector<vector<int>>& matrix) {
-    int n = matrix.size(), minPathSum = INT_MAX;
-    vector<vector<int>> dp(n, vector<int>(n));
-    for(int i=0; i<n; ++i) {
-        for(int j=0; j<n; ++j) {
-            if(i==0) {
-                dp[i][j] = matrix[i][j];
-            }
-            else {
-                int ld = j>0 ? dp[i-1][j-1] : INT_MAX;
-                int up = dp[i-1][j];
-                int rd = j<n-1 ? dp[i-1][j+1] : INT_MAX;
-                dp[i][j] = matrix[i][j] + min({ld, up, rd});
-            }
-            if(i==n-1) {
-                minPathSum = min(minPathSum, dp[i][j]);
-            }
-        }
-    }
-    return minPathSum;
-}
-
-// Memoization
-// Time complexity O(n*n)
-// Space complexity O(n*n) + recursion call stack O(n)
-// We can start from top as well as bottom
-// TLE in leetcode
-int solve(int i, int j, int n, vector<vector<int>> &matrix, vector<vector<int>> &dp) {
-    if(j<0 || j==n) return INT_MAX;
-    if(i==0) {
-        return dp[i][j] = matrix[i][j];
-    }
-    if(dp[i][j] != -1) return dp[i][j];
-    int ld = solve(i-1, j-1, n, matrix, dp);
-    int up = solve(i-1, j, n, matrix, dp);
-    int rd = solve(i-1, j+1, n, matrix, dp);
-    return dp[i][j] = min({ld, up, rd}) + matrix[i][j];
-}
-int minFallingPathSum(vector<vector<int>>& matrix) {
-    int n = matrix.size(), minPathSum = INT_MAX;
-    vector<vector<int>> dp(n, vector<int>(n, -1));
-    for(int i=0; i<n; ++i) {
-        minPathSum = min(minPathSum, solve(n-1, i, n, matrix, dp));
     }
     return minPathSum;
 }

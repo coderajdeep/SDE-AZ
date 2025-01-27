@@ -2,26 +2,6 @@
 // This problem can be solved from top to bottom or bottom to top
 // But top to bottom will be much simpler because here starting point will be fixed
 
-// Best approach
-// Space optimized
-// Time complexity O(n*n)
-// Space complexity O(n)
-int minimumTotal(vector<vector<int>>& triangle) {
-    int n = triangle.size();
-    vector<int> dp(n);
-    for(int i=n-1; i>=0; --i) {
-        for(int j=0; j<=i; ++j) {
-            if(i==n-1) dp[j] = triangle[i][j];
-            else {
-                int down = dp[j];
-                int right = dp[j+1];
-                dp[j] = triangle[i][j] + min(down, right);
-            }
-        }
-    }
-    return dp[0];
-}
-
 // Top Down
 // Memoization
 // Time complexity O(n*n)
@@ -57,4 +37,24 @@ int minimumTotal(vector<vector<int>>& triangle) {
         }
     }
     return dp[0][0];
+}
+
+// Best approach
+// Space optimized
+// Time complexity O(n*n)
+// Space complexity O(n)
+int minimumTotal(vector<vector<int>>& triangle) {
+    int n = triangle.size();
+    vector<int> dp(n);
+    for(int i=n-1; i>=0; --i) {
+        for(int j=0; j<=i; ++j) {
+            if(i==n-1) dp[j] = triangle[i][j];
+            else {
+                int down = dp[j];
+                int right = dp[j+1];
+                dp[j] = triangle[i][j] + min(down, right);
+            }
+        }
+    }
+    return dp[0];
 }

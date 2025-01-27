@@ -1,22 +1,5 @@
 // Unique path - leetcode 62
 
-// Best approach
-// Space optimized 
-// Time complexity O(n*m)
-// Space complexity O(n)
-// Using only one array
-int uniquePaths(int m, int n) {
-    vector<int> dp(n, 1);
-    for(int i=1; i<m; ++i) {
-        for(int j=1; j<n; ++j) {
-            // left : dp[j-1]
-            // up : dp[j]
-            dp[j] += dp[j-1];
-        }
-    }
-    return dp[n-1];
-}
-
 // Updated base condition
 // Top down
 // Memoization
@@ -40,7 +23,7 @@ int uniquePaths(int m, int n) {
 // Space complexity O(n*m) + Recursion Stack Space O(n+m)
 int uniquePathUtils(int r, int c, vector<vector<int>> &dp) {
     if(r==0 && c==0) return 1;
-    if(r<0 || c<0) return 0;
+    if(r<0 || c<0) return 0; // this condition will never reach
     if(dp[r][c] != -1) return dp[r][c];
     int left = uniquePathUtils(r, c-1, dp);
     int up = uniquePathUtils(r-1, c, dp);
@@ -50,6 +33,7 @@ int uniquePaths(int m, int n) {
     vector<vector<int>> dp(m + 1, vector<int>(n + 1, -1));
     return uniquePathUtils(m-1, n-1, dp);
 }
+
 
 // Bottom up
 // Tabulation
@@ -66,6 +50,23 @@ int uniquePaths(int m, int n) {
         }
     }
     return dp[m-1][n-1];
+}
+
+// Best approach
+// Space optimized 
+// Time complexity O(n*m)
+// Space complexity O(n)
+// Using only one array
+int uniquePaths(int m, int n) {
+    vector<int> dp(n, 1);
+    for(int i=1; i<m; ++i) {
+        for(int j=1; j<n; ++j) {
+            // left : dp[j-1]
+            // up : dp[j]
+            dp[j] += dp[j-1];
+        }
+    }
+    return dp[n-1];
 }
 
 // Space optimized
