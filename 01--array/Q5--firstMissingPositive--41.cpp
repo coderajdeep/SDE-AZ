@@ -4,19 +4,16 @@
 
 int firstMissingPositive(vector<int>& nums) {
     int n = nums.size();
-    bool isOnePresent = false;
+    vector<bool> arr(n+1, false);
     for(int num : nums) {
-        if(num == 1) isOnePresent = true;
-        if(num<=0 && num>n) {
-            nums[num] = 1;
+        if(num>0 && num<=n) {
+            arr[num] = true;
         }
     }
-    if(!isOnePresent) return 1;
-    for(int i=0; i<n; ++i) {
-        arr[arr[i]-1] = -1;
-    }
-    for(int i=0; i<n; ++i) {
-        if(arr[i] != -1) return (i+1);
+    for(int i=1; i<=n; ++i) {
+        if(!arr[i]) {
+            return i;
+        }
     }
     return (n+1);
 }

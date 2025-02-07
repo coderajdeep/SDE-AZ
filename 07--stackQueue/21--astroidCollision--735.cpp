@@ -24,6 +24,7 @@ vector<int> asteroidCollision(vector<int>& asteroids) {
             else if(stk.empty() || stk.top() < 0) {
                 stk.push(asteroids[i]);
             }
+            // ***
             // if asteroids[i] is negative and stk.top() > abs(asteroids[i])
             // this asteroids[i] will be destroyed and will not inserted into the stack
         }
