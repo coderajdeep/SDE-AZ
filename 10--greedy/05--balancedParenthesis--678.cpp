@@ -7,6 +7,9 @@
 
 // Time complexity O(n)
 // Space complexity O(1)
+
+// (**(
+// Dry run this test case
 bool checkValidString(string s) {
     int n = s.size(), minCount = 0, maxCount = 0;
     for(int i=0; i<n; ++i) {
@@ -25,3 +28,30 @@ bool checkValidString(string s) {
     }
     return min(maxCount, minCount) == 0;
 }
+
+
+// Time complexity O(n*n)
+// Space complexity O(n)
+class Solution {
+public:
+    int isValid(int index, int count, string &s, vector<vector<int>> &dp) {
+        if(count<0) return 0;
+        if(index == s.size()) {
+            if(count==0) return 1;
+            else return 0;
+        }
+        if(dp[index][count] != -1) return dp[index][count];
+        if(s[index]=='(') {
+            return dp[index][count] = isValid(index+1, count+1, s, dp);
+        }
+        else if(s[index]==')') {
+            return dp[index][count] = isValid(index+1, count-1, s, dp);
+        }
+        return dp[index][count] = (isValid(index+1, count-1, s, dp) || isValid(index+1, count+1, s, dp) || isValid(index+1, count, s, dp));
+    }
+    bool checkValidString(string s) {
+        int n = s.size();
+        vector<vector<int>> dp(n+1, vector<int>(n+1, -1));
+        return isValid(0, 0, s, dp);
+    }
+};
