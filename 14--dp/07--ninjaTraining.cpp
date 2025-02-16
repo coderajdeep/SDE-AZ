@@ -1,3 +1,40 @@
+// Minimum Falling Path Sum II -- leetcode 1289
+// Time complexity O(n*n*n)
+// Space complexity O(2*n)
+class Solution {
+public:
+    int minFallingPathSum(vector<vector<int>>& grid) {
+        int n = grid.size();
+        if(n==0) return 0;
+        vector<int> prev(n+1), curr(n+1);
+        for(int i=0; i<=n; ++i) {
+            int points = INT_MAX;
+            for(int j=0; j<n; ++j) {
+                if(i!=j) {
+                    points = min(points, grid[0][j]);
+                }
+            }
+            prev[i] = points;
+        }
+        for(int index=1; index<n; ++index) {
+            for(int i=0; i<=n; ++i) {
+                int points = INT_MAX;
+                for(int j=0; j<n; ++j) {
+                    if(i!=j) {
+                        points = min(points, grid[index][j] + prev[j]);
+                    }
+                }
+                curr[i] = points;
+            }
+            for(int i=0; i<=n; ++i) {
+                prev[i] = curr[i];
+            }
+        }
+        return prev[n];
+    }
+};
+
+
 // Geeks training
 
 // Memoization -- top down approach

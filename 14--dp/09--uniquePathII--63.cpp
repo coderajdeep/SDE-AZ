@@ -68,6 +68,29 @@ int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
     return dp[m-1];
 }
 
+// clean approach
+// Best approach
+// Space optimized approach
+// Time complexity O(n*m)
+// Space complexity O(m) : Only single array used
+int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
+    int n = obstacleGrid.size();
+    if(n==0) return 0;
+    int m = obstacleGrid[0].size();
+    vector<int> dp(m);
+    dp[0] = obstacleGrid[0][0] == 0 ? 1 : 0;
+    for(int i=1; i<m; ++i) {
+        dp[i] = obstacleGrid[0][i] == 1 ? 0 : dp[i-1];
+    }
+    for(int i=1; i<n; ++i) {
+        if(obstacleGrid[i][0] == 1) dp[0] = 0;
+        for(int j=1; j<m; ++j) {
+            dp[j] = (obstacleGrid[i][j] == 1) ? 0 : dp[j-1] + dp[j];
+        }
+    }
+    return dp[m-1];
+}
+
 
 // best approach
 // Space optimized
