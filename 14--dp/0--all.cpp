@@ -11,6 +11,7 @@
 // Frog Jump -- Coding Ninjas
 
 // 4 ***
+// If n >> k then we can solve this problem using monotonic deque
 // Minimum cost -- geeks
 // Here constant space solution is not possible
 // Frog Jump with k distance -- Coding Ninjas
