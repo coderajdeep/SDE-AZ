@@ -65,7 +65,9 @@
 // Solved tabulation as well as space optimize tabulation
 // Cherry Pickup II -- leetcode 1463
 
-// 14 **
+// 14 ***
+// If you want to return the subset then try this *******
+// https://leetcode.com/discuss/interview-question/1279773/google-interview-question-array-subset-sum-equals-k
 // Need to try if the sum is negative
 // In that case we need to use unordered_map
 // Subset sum equal to K -- coding ninjas
