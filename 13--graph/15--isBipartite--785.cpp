@@ -20,3 +20,42 @@ bool isBipartite(vector<vector<int>>& graph) {
     }
     return true;
 }
+
+// Using BFS
+// Time complexity O(E+V)
+// Space complexity O(E+V)
+class Solution {
+private:
+    bool bfs(int node, vector<char> &visited, vector<vector<int>> &graph) {
+        queue<int> q;
+        q.push(node);
+        visited[node] = 'a';
+        while(!q.empty()) {
+            int u = q.front();
+            q.pop();
+            for(int v : graph[u]) {
+                if(visited[v]=='#') {
+                    q.push(v);
+                    visited[v] = visited[u]=='a' ? 'b' : 'a';
+                }
+                else if(visited[v]==visited[u]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+public:
+    bool isBipartite(vector<vector<int>>& graph) {
+        int n = graph.size();
+        vector<char> visited(n, '#');
+        for(int i=0; i<n; ++i) {
+            if(visited[i]=='#') {
+                if(!bfs(i, visited, graph)) {
+                    return false;
+                }
+            } 
+        }
+        return true;
+    }
+};
