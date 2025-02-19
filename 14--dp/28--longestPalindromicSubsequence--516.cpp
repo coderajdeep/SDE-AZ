@@ -19,3 +19,29 @@ int longestPalindromeSubseq(string s) {
     reverse(s2.begin(), s2.end());
     return longestCommonSubsequence(s, s2);
 }
+
+// Longest palindromic substring
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        int n = s.size();
+        if(n==0) return "";
+        vector<vector<bool>> dp(n, vector<bool>(n, false));
+        // string starts from j and end in i index
+        int maxLen = 0, start = 0;
+        for(int i=0; i<n; ++i) {
+            for(int j=i; j>=0; --j) {
+                if(j==i) dp[j][i] = true;
+                else if(j+1==i) dp[j][i] = (s[j]==s[i]);
+                else {
+                    dp[j][i] = (s[j]==s[i] && dp[j+1][i-1]);
+                }
+                if(dp[j][i] && maxLen < (i-j+1)) {
+                    maxLen = (i-j+1);
+                    start = j;
+                }
+            }
+        }
+        return s.substr(start, maxLen);
+    }
+};
