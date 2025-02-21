@@ -28,3 +28,6 @@
 // 9 ***
 // Max length of intersection finding
 // Minimum Platform Required  -- Geeks
+
+// 10 ***
+// Job Sequencing Problem -- Geeks
