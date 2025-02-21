@@ -31,3 +31,6 @@
 
 // 10 ***
 // Job Sequencing Problem -- Geeks
+
+// 12
+// Shortest job first -- geeks
